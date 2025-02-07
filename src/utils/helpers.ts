@@ -1,4 +1,5 @@
 export const encrypt = (text: string, key: string) => {
+  if (!key || !text) return ''
   let encrypted = []
   //OR
   for (let i = 0; i < text.length; i++) {
@@ -17,6 +18,7 @@ export const encrypt = (text: string, key: string) => {
 }
 
 export const decrypt = (encryptedText: string, key: string) => {
+  if (!encryptedText || !key) return ''
   const encrypted = fromBase64(encryptedText) //convert from base64 to text
 
   const padLength = encrypted.shift()! //to extract the padlength that was added to the first index of the array
